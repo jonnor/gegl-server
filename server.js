@@ -1,7 +1,6 @@
 
 /* Server module */
 
-var encoder = new require('node-html-encoder').Encoder('entity')
 var static = require('node-static');
 
 var http = require("http");
@@ -79,30 +78,6 @@ function createServer(portNumber) {
 
     } else if (pathname == "/process") {
         process(request, response)
-    
-    } else if (pathname == "/") {
-        // Serve demo application
-
-        response.writeHead(200, {"Content-Type": "text/html"});    
-
-        var body = '<html>'+
-            '<head>'+
-            '<meta http-equiv="Content-Type" content="text/html; '+
-            'charset=UTF-8" />'+
-            '</head>'+
-            '<body>'+
-            '<form action="/process" method="post">'+
-            'Graph: <br>' +
-            '<textarea name="graphData" rows="20" cols="60">' + encoder.htmlEncode(String(example_xml)) +
-            '</textarea> <br>' +
-            'Output filename: <input type="text" name="outputFile" /> <br>' +
-            '<input type="submit" value="Process" /><br>'+
-            '</form>'+
-            '</body>'+
-            '</html>';
-
-        response.write(body)
-        response.end();
 
     } else {
         response.writeHead(404, {"Content-Type": "text/plain"})
