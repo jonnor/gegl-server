@@ -5,5 +5,12 @@ Usage
 
  node index.js
 
+Dependencies
+=============
+* GEGL: http://www.gegl.org
+* node.js: http://www.nodejs.org
+* node-static: https://github.com/cloudhead/node-static
+
 TODO
 =====
+See TODO and FIXME comments in the code.

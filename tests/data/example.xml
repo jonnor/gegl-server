@@ -1,0 +1,13 @@
+<gegl>
+  <gegl:crop width='512' height='512'/>
+  <gegl:over >
+    <gegl:translate x='30' y='30'/>
+    <gegl:dropshadow radius='1.5' x='3' y='3'/>
+    <gegl:text size='80' color='white'><params>
+      <param name='string'>GEGL SERVER</param>
+      </params>
+    </gegl:text>
+  </gegl:over>
+  <gegl:unsharp-mask std-dev='30'/>
+  <gegl:load path='tests/data/lena.png'/>
+</gegl>
