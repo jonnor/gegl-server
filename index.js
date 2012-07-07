@@ -1,3 +1,3 @@
-var server = require("./server");
+var gegl = require("./server");
 
-server.start();
+gegl.createServer(8888);
