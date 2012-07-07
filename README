@@ -1,0 +1,9 @@
+gegl-server: Image processing server based on GEGL
+
+Usage
+=====
+
+ node index.js
+
+TODO
+=====
