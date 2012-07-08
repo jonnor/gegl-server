@@ -2,6 +2,8 @@
   "name" : "gegl-server",
   "version" : "0.1.0",
   "description" : "An image processing server based on GEGL",
+  "license": "MIT",
+  "author" : "Jon Nordby <jononor@gmail.com> (http://jonnor.com/)",
   "keywords" : ["image processing", "graphics", "image editing"],
   "homepage" : "http://www.github.com/jonnor/gegl-server",
   "bugs" : "https://github.com/jonnor/gegl-server/issues",
