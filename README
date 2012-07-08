@@ -2,7 +2,14 @@ gegl-server: Image processing server based on GEGL
 
 Installing
 ==========
- npm install npm install git+https://github.com/jonnor/gegl-server.git
+
+# Install GEGL, a non-node.js dependency. http://www.gegl.org
+ apt-get install gegl # Ubuntu/Debian
+ zypper install gegl # OpenSUSE
+ yum install gegl # Fedora
+ pacman -S gegl # Arch Linux
+
+ npm install git+https://github.com/jonnor/gegl-server.git
 
 Usage
 =====
@@ -15,11 +22,6 @@ Usage
  # Example 2: Embedd and use in a node.js web application
  see ./demo.js
 
-Dependencies
-=============
-* GEGL: http://www.gegl.org
-* node.js: http://www.nodejs.org
-* node-static: https://github.com/cloudhead/node-static
 
 TODO
 =====

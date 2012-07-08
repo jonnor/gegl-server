@@ -10,5 +10,6 @@
   "repository" : {"type" : "git", "url" : "http://github.com/jonnor/gegl-server.git"},
   "main" : "./lib/gegl-server.js" ,
   "bin" : { "gegl-server" : "./server.js" }
+  "dependencies" : { "node-static" : "0.6.x" }
 }
 
