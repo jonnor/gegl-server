@@ -2,7 +2,7 @@ gegl-server: Image processing server based on GEGL
 
 Installing
 ==========
-npm install https://github.com/jonnor/gegl-server
+ npm install npm install git+https://github.com/jonnor/gegl-server.git
 
 Usage
 =====
