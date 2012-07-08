@@ -11,8 +11,6 @@ var gegl_server = require('../gegl-server')
 var http = require("http");
 var url = require("url");
 
-var encoder = new require('node-html-encoder').Encoder('entity')
-
 function start() {
 
   var example_xml = require("fs").readFileSync('tests/data/example.xml')
@@ -37,7 +35,7 @@ function start() {
             '<body>'+
             '<form action="http://localhost:8888/process" method="post">'+
             'Graph: <br>' +
-            '<textarea name="graphData" rows="20" cols="60">' + encoder.htmlEncode(String(example_xml)) +
+            '<textarea name="graphData" rows="20" cols="60">' + example_xml +
             '</textarea> <br>' +
             'Output filename: <input type="text" name="outputFile" /> <br>' +
             '<input type="submit" value="Process" /><br>'+
