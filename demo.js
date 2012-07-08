@@ -1,5 +1,7 @@
+#!/usr/bin/env node
+// gegl-server demo application
 
-var gegl = require('./server')
+var gegl_server = require('../gegl-server')
 var http = require("http");
 var url = require("url");
 
@@ -49,9 +51,8 @@ function start() {
   }
 
   http.createServer(onRequest).listen(8000);
-  gegl.createServer(8888);
+  gegl_server.createServer(8888);
   console.log("Server has started.");
 }
 
-exports.start = start
-
+start();
