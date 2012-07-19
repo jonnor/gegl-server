@@ -8,4 +8,26 @@
 // gegl-server executable
 
 gegl_server = require('../gegl-server')
-gegl_server.createServer(8888)
+
+function main(arguments) {
+
+    var fs = require('fs'),
+        spawn = require('child_process').spawn
+
+    var parser = require('optimist')
+                .usage('Usage: $0 [--port port]')
+                .options('p', {alias: 'port', default: 8000, describe: 'Port to start the server on'})
+
+    var argv = parser.parse(arguments)
+
+    if (argv._.length == 2) {
+
+    } else {
+        parser.showHelp()
+        process.exit(1)
+    }
+
+    gegl_server.createServer(argv.port)
+}
+
+main(process.argv)
