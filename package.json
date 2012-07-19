@@ -9,7 +9,9 @@
   "bugs" : "https://github.com/jonnor/gegl-server/issues",
   "repository" : {"type" : "git", "url" : "http://github.com/jonnor/gegl-server.git"},
   "main" : "./lib/gegl-server.js" ,
-  "bin" : { "gegl-server" : "./server.js" },
-  "dependencies" : { "node-static" : "0.6.x" }
+  "bin" : { "gegl-server" : "./server.js", "gegl-client" : "./client.js" },
+  "scripts": { "test" : "vows --spec tests/*test.js" },
+  "dependencies" : { "node-static" : "0.6.x", "optimist": "0.3.x" },
+  "devDependencies" : { "node-static" : "0.6.x", "vows": "0.6.x", "api-easy": "0.3.x" }
 }
 
