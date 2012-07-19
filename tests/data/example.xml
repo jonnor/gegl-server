@@ -9,5 +9,5 @@
     </gegl:text>
   </gegl:over>
   <gegl:unsharp-mask std-dev='30'/>
-  <gegl:load path='tests/data/lena.png'/>
+  <gegl:checkerboard/>
 </gegl>
