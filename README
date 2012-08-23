@@ -1,5 +1,10 @@
 gegl-server: Image processing server based on GEGL
 
+At the moment gegl-server aims to allow clients to do
+non-interactive or batch processing of images.
+
+For some thoughts on where it may go in the future, see doc/ideas.txt
+
 Installing
 ==========
 
@@ -9,6 +14,7 @@ Installing
  yum install gegl # Fedora
  pacman -S gegl # Arch Linux
 
+# Install gegl-server itself
  npm install git+https://github.com/jonnor/gegl-server.git
 
 Usage
@@ -26,3 +32,7 @@ Usage
 TODO
 =====
 See TODO and FIXME comments in the code.
+
+* Add a more extensive client API and library
+* GEGL: Add a JSON-based graph serialization format, used instead of XML
+* GEGL: Support http/ftp URIs for common file load operations like PNG, JPEG
