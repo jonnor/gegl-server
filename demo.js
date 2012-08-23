@@ -14,7 +14,9 @@ var url = require("url");
 function start() {
 
   var example_xml = require("fs").readFileSync('tests/data/example.xml')
-
+  var portNumber = 8000
+  var hostName = 'localhost'
+  var serverOptions = {'fileUrlHost': 'http://' + hostName + ':' + portNumber}
 
   function onRequest(request, response) {
     
@@ -60,10 +62,10 @@ function start() {
         response.end();
 
     } else if (pathname.indexOf('/files') === 0) {
-        gegl.serveFile(request, response);
+        gegl.serveFile(request, response, serverOptions);
 
     } else if (pathname == "/process") {
-        gegl.process(request, response);
+        gegl.process(request, response, serverOptions);
 
     } else {
         response.writeHead(404, {"Content-Type": "text/plain"});
@@ -73,7 +75,7 @@ function start() {
   }
 
 
-  http.createServer(onRequest).listen(8000);
+  http.createServer(onRequest).listen(portNumber);
   console.log("Server has started.");
 }
 
