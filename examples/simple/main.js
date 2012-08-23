@@ -7,13 +7,15 @@
 
 // gegl-server demo application
 
-var gegl = require('../gegl-server')
+var gegl = require('gegl-server')
 var http = require("http");
 var url = require("url");
+var fs = require("fs");
 
 function start() {
 
-  var example_xml = require("fs").readFileSync('tests/data/example.xml')
+  var example_xml = fs.readFileSync(__dirname + '/../data/examplegraph1.xml')
+  var clientsideJs = fs.readFileSync(__dirname + '/clientside.js')
   var portNumber = 8000
   var hostName = 'localhost'
   var serverOptions = {'fileUrlHost': 'http://' + hostName + ':' + portNumber}
@@ -42,7 +44,8 @@ function start() {
             '</head>'+
             '<body>'+
             '<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>' +
-            '<script src="http://localhost:8000/files/demo-clientside.js"></script>' +
+            '<script>' + clientsideJs +
+            '</script>' +
             '<div id="editorPane">' +
             '<form id="graphForm">'+
             '<textarea name="graphData" rows="20" cols="60">' + example_xml +
