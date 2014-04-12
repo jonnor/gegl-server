@@ -2,6 +2,6 @@ gegl-server
 =============
 Was the start of an image processing server based on GEGL,
 which is now abandoned.
-New developments happen in https://github.com/jonnor/noflo-gegl,
+New developments happen in https://github.com/jonnor/imgflo,
 but the full git history of gegl-server has been preserved for posterity.
 
