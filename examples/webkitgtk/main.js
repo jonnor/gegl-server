@@ -14,6 +14,7 @@ var gir = require('gir')
  ,  Gegl = gir.load('Gegl', '0.2')
  ,  GeglGtk = gir.load('GeglGtk3', '0.1')
  ,  GeglServer = require('gegl-server')
+ ,  Glib = gir.load('GLib', '2.0')
 
 Gtk.init(0);
 
@@ -46,6 +47,15 @@ crop_node.set_property('width', 200)
 crop_node.set_property('height', 200)
 color_node.link(crop_node)
 
+
+/* FIXME: never called, as Gtk.main() is blocking the Node.JS eventloop
+ * Fix by integrating the GTK/Glib and Node eventloops */
+setTimeout(function () {
+    console.log("changing checkerboard props")
+    color_node.set_property("x", 32)
+    color_node.set_property("y", 32)
+}, 1500);
+
 var nodeView = new GeglGtk.View()
 nodeView.set_node(crop_node)
 
@@ -59,5 +69,15 @@ win.add(box);
 
 win.set_size_request(640, 480);
 win.show_all();
+
+/* Drive the Node.JS eventloop whenever the glib one is idle */
+function nodeMainTick() {
+    console.log("glib idle")
+    process.nextTick()
+    return true
+}
+
+Glib.idle_add(200, nodeMainTick, undefined)
+
 
 Gtk.main();
