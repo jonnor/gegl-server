@@ -1,38 +1,7 @@
-gegl-server: Image processing server based on GEGL
+gegl-server
+=============
+Was the start of an image processing server based on GEGL,
+which is now abandoned.
+New developments happen in https://github.com/jonnor/noflo-gegl,
+but the full git history of gegl-server has been preserved for posterity.
 
-At the moment gegl-server aims to allow clients to do
-non-interactive or batch processing of images.
-
-For some thoughts on where it may go in the future, see doc/ideas.txt
-
-Installing
-==========
-
-# Install GEGL, a non-node.js dependency. http://www.gegl.org
- apt-get install gegl # Ubuntu/Debian
- zypper install gegl # OpenSUSE
- yum install gegl # Fedora
- pacman -S gegl # Arch Linux
-
-# Install gegl-server itself
- npm install git+https://github.com/jonnor/gegl-server.git
-
-Usage
-=====
-
- # Example 1: Start the server, process an image and open it
- node server.js
- export image_url=`curl http://localhost:8888/process -d "graphData=<gegl> <gegl:crop width='512' height='512'/> <gegl:text size='80' color='black'><params> <param name='string'>GEGL SERVER</param> </params> </gegl:text> </gegl>&outputFile=myfile2.png"`
- xdg-open $image_url
-
- # Example 2: Embedd and use in a node.js web application
- see ./demo.js
-
-
-TODO
-=====
-See TODO and FIXME comments in the code.
-
-* Add a more extensive client API and library
-* GEGL: Add a JSON-based graph serialization format, used instead of XML
-* GEGL: Support http/ftp URIs for common file load operations like PNG, JPEG
